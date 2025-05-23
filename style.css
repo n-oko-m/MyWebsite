@@ -1,0 +1,497 @@
+/* 全体への設定 */
+*{
+    box-sizing: border-box;
+    font-family: "Noto Sans JP", sans-serif;
+    padding: 0;
+    margin: 0;
+}
+body{
+    color:#333;
+}
+
+a{
+    /* bodyの文字色を継承 */
+    color: inherit; 
+    /* 下線消す */
+    text-decoration: none;
+}
+
+/* 共通で使うクラス設定 */
+.container{
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto; /*containerの要素を中央寄せする*/
+}
+
+.section-title{
+    display: inline-block;
+    font-size:64px;
+    letter-spacing: 0.1em;/*ls.0.1emとは文字の高さの０.１倍の間隔*/
+}
+/* header */
+header{
+    /* ヘッダーの固定 */
+    position: fixed;
+    z-index: 9999;
+    height: 80px;
+    /* 固定によりレイアウトが崩れるから、横幅をウィンドウの大きさに設定 */
+    width: 100%;
+    background-color: rgba(225, 225, 225, 80%);
+}
+
+header .container{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header p{
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+
+header a{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+header ul{
+    display: flex;
+    list-style: none;
+    column-gap: 40px;
+    justify-content: space-between;
+}
+
+@media(max-width: 768px){
+    header ul{
+        display: none;
+    }
+}
+
+/*ここからfirst view*/
+.firstview{
+    display: flex;/*df tab*/
+    background-image: url('images/hero-image.png');
+    height: 800px;
+    background-position: center;
+    background-size: cover;
+    align-items:center; /*垂直方向中央揃え*/
+    justify-content: center; /*水平方向中央揃え*/
+    flex-direction: column; /*小要素の並ぶ向きや順番を決める*/
+}
+
+.firstview h1{
+    font-size:80px;
+}
+
+.firstview p{
+    font-size: 30px;
+}
+
+/* ここからaboutセクション */
+.about{
+    padding: 140px 0;
+}
+
+.profile{
+    display: flex;
+    column-gap: 5%;
+}
+
+.profile h2{
+    font-size: 64px;
+    letter-spacing: 0.1em;
+}
+
+.profile h3{
+    margin-top: 72px;
+    font-size: 24px;
+}
+
+.profile p{
+    margin-top: 24px;/*mt24*/
+    font-size: 16px;
+}
+
+.profile img{
+    width: 480px;
+    height: 270px;
+}
+
+@media (max-width: 768px){
+    .firstview h1{
+        font-size: 56px;
+    }
+    .about{
+        padding: 80px, 0;
+    }
+    .profile{
+        flex-direction: column;
+        row-gap: 24px;
+    }
+    .profile h3{
+        margin-top: 24px;
+    }
+    .profile p{
+        margin-top: 16px;
+    }
+    .profile img{
+        width: 100%;
+    }
+    .secrion-title{
+        font-size: 44px;
+    }
+}
+
+.school-club {
+    margin-top: 200px;
+    /* df */
+    display: flex;
+    column-gap: 5%;
+}
+
+.school-club .content{
+    width: 100%;
+}
+.school-club img{
+    width: 100%;
+    height: 300px;
+    border-radius: 16px;
+    object-fit: cover; /*縦横比保ったままトリミング */
+}
+
+.school-club h3{
+    margin-top: 8px;
+}
+
+.school-club p{
+    margin-top: 16px;
+}
+
+.school-club a{
+    /* aタグをインラインからインラインブロックへ変更 */
+    display: inline-block;
+    margin-top: 32px;
+    font-weight: bold;
+    border-bottom: 1px solid #333
+}
+
+@media(max-width:768px){
+    .school-club{
+        flex-direction: column;
+        row-gap: 40px;
+        margin-top: 100px;
+    }
+
+    .school-club img{
+        height: 220px;
+    }
+
+    .school-club a{
+        margin-top: 24px;
+    }
+}
+
+/* ここからclubセクション */
+.club{
+    padding: 140px 0;
+    background-color: #fffdf3;
+}
+
+.club-text{
+    width: 40%;
+    position: relative;
+    /* レイヤー指定 */
+    z-index: 4;
+}
+
+.club-text h2{
+    font-size: 48px;
+}
+.club p{
+    margin-top: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.8;
+    letter-spacing: 0.1em;
+}
+
+.club .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.club-img{
+    position: relative;
+    width: 50%;
+    aspect-ratio: 1/1.25;
+
+}
+
+.club-img img{
+    position: absolute;
+}
+/* 擬似クラスの利用 */
+.club-img img:nth-child(1){
+    top: 0;
+    left: 0;
+    width: 65%;
+    z-index: 3;
+}
+
+.club-img img:nth-child(2){
+    top: 30%;
+    left: 8%;
+    width: 85%;
+    z-index: 1;
+}
+
+.club-img img:nth-child(3){
+    right: 0%;
+    bottom: 0%;
+    width: 40%;
+    z-index: 2;
+}
+
+@media(max-width:768px){
+    .club{
+        padding: 80px 0;
+    }
+    .club .container{
+        flex-direction: column;
+        row-gap: 16px;
+    }
+    .club-img{
+        width: 100%;
+    }
+    .club-text{
+        width: 100%;
+    }
+}
+
+
+/* ここからfavoriteセクション　*/
+.favorite{
+    text-align: center;
+    padding: 140px 0 ;
+    text-align: center;
+    background-image: url('images/favorite-background.png');
+    background-position: center;
+    /* 背景画像の横幅を画面サイズに */
+    background-size: cover;
+}
+
+/* 子要素から書く */
+.favorite .section-title{
+    color: #fff;
+    border-bottom: 3px solid #fff;
+}
+
+.favorite-content{
+    
+    width: 320px;
+    padding: 40px;
+    background-color: rgba(225, 225, 225, 80%);
+    border-radius: 16px;
+
+}
+
+.favorite-content img{
+    width: 200px;
+    /* コンテンツの縦横比を指定 */
+    aspect-ratio: 1/1;
+    /* 要素の角の丸まり具合を決定。 */
+    border-radius: 50%;
+}
+
+.favorite-content h3{
+    font-size: 24px;
+    margin-top: 24px;
+}
+.favorite-content p{
+    font-size: 16px;
+    text-align: left;
+    margin-top: 8px;
+}
+
+.favorite-contents{
+    display: flex;
+    margin-top: 80px;
+    justify-content: space-between;
+    column-gap: 16px;
+}
+
+@media(max-width:768px){
+    .favorite{
+        padding: 80px;
+    }
+
+    .favorite-content{
+        max-width: 100%;
+    }
+
+    .favorite-contents{
+        flex-direction: column;
+        row-gap: 40px;
+        align-items: center;
+    }
+    .favorite-content img{
+        width: 200px;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        /* 画像の大きさの最大値が親要素のwidth幅の100%の値 。幅は可変だが一定以上は超えたくない時。*/
+        max-width: 100%;
+    }
+
+}
+
+.works{
+    padding: 140px 0;
+    /* tac */
+    text-align: center; 
+    background-color: #fffdf3;
+}
+
+.works .section-title{
+    border-bottom: 3px solid #f90;
+}
+
+.works-content{
+    display: flex;
+    background-color: #fff;
+    padding: 40px;
+    margin-top: 40px;
+    column-gap: 32px;
+    text-align: left;
+    /* 影をつける */
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 15%);
+
+}
+.works-content img{
+    object-fit: cover;
+    width: 320px;
+    height: 160px;
+}
+
+.works-text h3{
+    display: flex;
+    align-items: baseline;
+    /* flexboxの中で折り返す稼働かを指定 */
+    flex-wrap: wrap;
+    font-size: 28px;
+    column-gap: 16px;
+}
+/* spanタグはインライン要素。ある部分をグループ化。文の中で使うことが多い */
+.works-text span{
+    font-size: 16px;
+}
+
+.works-text p{
+    font-size: 16px;
+    margin-top: 16px;
+}
+
+@media(max-width: 768px){
+    .works{
+        padding: 80px 0 ;
+    }
+
+    .works-content{
+        flex-direction: column;
+        row-gap: 24px;
+        padding: 20px;
+    }
+    /* スマホの画面では画像を横幅いっぱいに表示させる。 */
+    .works-content img{
+        width:100%;
+    } 
+
+}
+
+.contact{
+    padding: 140px 0;
+    text-align: center;
+}
+
+.contact .section-title{
+    border-bottom: 3px solid #ff9900;
+}
+
+.contact p{
+    margin-top: 48px;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    line-height: 2;
+    text-align: left;
+}
+
+/* 上書き */
+.contact .container{
+    max-width: 800px;
+}
+
+.contact a{
+    display: inline-block;
+    width: 200px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 80px;
+    letter-spacing: 0.1em;
+    color: #fff;
+    border-radius: 16px;
+}
+
+.contact .sns-twitter{
+    background-color: #00acee;
+}
+
+.contact .sns-facebook{
+    background-color: #3b5998;
+}
+
+.contact .sns-website{
+    background-color: #333;
+}
+.contact .sns{
+    display: flex;
+    margin-top: 100px;
+    column-gap: 50px;
+    /* 水平方向中央揃え */
+    justify-content: center;
+}
+
+@media(max-width: 768px){
+    .contact{
+        padding: 80px 0;
+    }
+
+    .contact p{
+        font-size: 20px;
+    }
+
+    .contact .sns{
+        flex-direction: column;
+        row-gap: 10px;
+        margin-top: 50px;
+    }
+    .contact a{
+        width: 100%;
+        line-height: 60px;
+    }
+}
+
+footer{
+    display: flex;
+    height: 80px;
+    background-color:#edece7;
+    align-items: center;
+    font-size: 14px;
+    justify-content: center;
+    letter-spacing: 0.1em;
+
+}
